@@ -16,17 +16,9 @@ set -e
 # Optional: Import test library bundled with the devcontainer CLI
 source dev-container-features-test-lib
 
-echo -e "The result of the 'color' command will be:\n"
-color
-echo -e "The result of the 'hello' command will be:\n"
-hello
-echo -e "\n"
-
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib.
-check "check purple is my favorite color" color | grep 'my favorite color is purple'
-check "check I am greeting with 'Greetings'" hello | grep 'Greetings, root'
-
+check "skaffold" skaffold version
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

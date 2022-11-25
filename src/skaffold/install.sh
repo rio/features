@@ -47,7 +47,7 @@ main () {
             SKAFFOLD_URL="https://storage.googleapis.com/skaffold/releases/v${SKAFFOLD_VERSION}/skaffold-linux-arm64"
             SKAFFOLD_SHA="${SKAFFOLD_SHA_ARM64}"
         ;;
-        "amd64")
+        "x86_64")
             SKAFFOLD_URL="https://storage.googleapis.com/skaffold/releases/v${SKAFFOLD_VERSION}/skaffold-linux-amd64"
             SKAFFOLD_SHA="${SKAFFOLD_SHA_AMD64}"
         ;;
@@ -69,7 +69,7 @@ main () {
     echo "Verifying checksum ${SKAFFOLD_SHA} ..."
     echo "${SKAFFOLD_SHA}  /usr/local/bin/skaffold" | ${SHA256SUM_CLI} -c - 
     chmod +x /usr/local/bin/skaffold
-}
+
     echo "Skaffold ${SKAFFOLD_VERSION} for ${ARCH} installed at $(command -v skaffold)."
 }
 

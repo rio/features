@@ -47,7 +47,7 @@ main () {
             CHEZMOI_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION}_linux_arm64.tar.gz"
             CHEZMOI_SHA="${CHEZMOI_SHA_ARM64}"
         ;;
-        "amd64")
+        "x86_64")
             CHEZMOI_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION}_linux_amd64.tar.gz"
             CHEZMOI_SHA="${CHEZMOI_SHA_AMD64}"
         ;;

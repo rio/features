@@ -2,6 +2,7 @@
     "all-tools": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
+            "chezmoi": {},
             "skaffold": {}
         }
     }

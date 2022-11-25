@@ -6,33 +6,26 @@ readonly CHEZMOI_VERSION='2.27.2'
 readonly CHEZMOI_SHA_AMD64='4b1e63c073e4b31fd491ae0ddde153a793b67fb99cb1f0cd85d0f43777f6a274'
 readonly CHEZMOI_SHA_ARM64='71b4c7b1966f7d4fb51d182fdd769cf5ddcbde4998b0995b504b75cb8bb02537'
 
-# required tools
-readonly DOWNLOAD_CLI="$(command -v curl || command -v wget)"
-readonly TAR_CLI="$(command -v tar)"
-readonly SHA256SUM_CLI="$(command -v sha256sum)"
-
+# apt-get configuration
+export DEBIAN_FRONTEND=noninteractive
 
 preflight () {
-    local FAILED=false
-
-    if [ -z "${DOWNLOAD_CLI}" ]; then
-        echo "curl or wget is required for this feature to work."
-        FAILED=true
+    if [ -e /etc/os-release ]; then
+        . /etc/os-release
     fi
 
-    if [ -z "${TAR_CLI}" ]; then
-        echo "tar is required for this feature to work."
-        FAILED=true
-    fi
-
-    if [ -z "${SHA256SUM_CLI}" ]; then
-        echo "sha256sum is required for this feature to work."
-        FAILED=true
-    fi
-
-    if ${FAILED}; then
-        exit 1
-    fi
+    case "${ID}" in
+        'debian' | 'ubuntu')
+            apt-get update
+            apt-get install -y --no-install-recommends \
+                wget \
+                ca-certificates
+        ;;
+        'fedora')
+            dnf -y install wget
+        ;;
+        *) echo "The ${ID} distribution is not supported."; exit 1 ;;
+    esac
 }
 
 main () {
@@ -54,21 +47,12 @@ main () {
         *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
     esac
 
-    echo "Downloading ${CHEZMOI_URL} using ${DOWNLOAD_CLI} ..."
-
-    case "$(basename ${DOWNLOAD_CLI})" in
-        "curl")
-            curl -sSfLo /tmp/chezmoi.tar.gz "${CHEZMOI_URL}"
-        ;;
-        "wget")
-            wget -qO /tmp/chezmoi.tar.gz "${CHEZMOI_URL}"
-        ;;
-        *) echo "Unsupported download cli $(basename ${DOWNLOAD_CLI})."; exit 1;
-    esac
+    echo "Downloading ${CHEZMOI_URL} ..."
+    wget -qO /tmp/chezmoi.tar.gz "${CHEZMOI_URL}"
 
     echo "Verifying checksum ${CHEZMOI_SHA} ..."
 
-    echo "${CHEZMOI_SHA}  /tmp/chezmoi.tar.gz" | ${SHA256SUM_CLI} -c -
+    echo "${CHEZMOI_SHA}  /tmp/chezmoi.tar.gz" | sha256sum -c -
 
     echo "Extracting..."
     tar xf /tmp/chezmoi.tar.gz --directory=/usr/local/bin chezmoi

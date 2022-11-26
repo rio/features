@@ -15,6 +15,7 @@ jobs:
         features:
           - skaffold
           - chezmoi
+          - kustomize
         baseImage:
           - debian:latest
           - ubuntu:latest

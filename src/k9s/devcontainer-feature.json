@@ -1,6 +1,6 @@
 {
-    "name": "Kubernetes native configuration management",
-    "id": "kustomize",
+    "name": "Kubernetes CLI To Manage Your Clusters In Style!",
+    "id": "k9s",
     "version": "1.0.0",
-    "description": "Kustomize introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. Now, built into kubectl as apply -k."
+    "description": "K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your applications in the wild. K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources."
 }

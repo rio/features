@@ -16,6 +16,8 @@ jobs:
           - skaffold
           - chezmoi
           - kustomize
+          - k9s
+          - k3d
         baseImage:
           - debian:latest
           - ubuntu:latest

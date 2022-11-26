@@ -1,5 +1,5 @@
 {
-    "name": "Kubernetes native configuration management",
+    "name": "Kustomize",
     "id": "kustomize",
     "version": "1.0.0",
     "description": "Kustomize introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. Now, built into kubectl as apply -k."

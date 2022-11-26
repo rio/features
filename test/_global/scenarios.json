@@ -5,6 +5,7 @@
             "chezmoi": {},
             "skaffold": {},
             "k9s": {},
+            "k3d": {},
             "kustomize": {}
         }
     }

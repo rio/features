@@ -7,9 +7,6 @@ source dev-container-features-test-lib
 
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib.
-check "skaffold" skaffold version
-check "chezmoi" chezmoi --version
-check "kustomize" kustomize version
 check "k9s" k9s version
 
 # Report result

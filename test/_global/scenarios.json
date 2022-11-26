@@ -4,6 +4,7 @@
         "features": {
             "chezmoi": {},
             "skaffold": {},
+            "k9s": {},
             "kustomize": {}
         }
     }

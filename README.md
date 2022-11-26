@@ -14,4 +14,5 @@ and will always have both an arm64 and amd64 variant.
 | chezmoi   | https://chezmoi.io | *The* tool that I include in all my projects. It makes it very easy to pull in your personal dotfiles and instantly transform that last 10% of your devcontainer into the dev environment you expect on every machine! |
 | skaffold  | https://skaffold.dev | A tool that helps with your development loop. It can continuously build, deploy and even sync files into already running containers whenever you make changes. Combine it with a tool like entr inside the running container and you have a killer combo. |
 | kustomize | https://kustomize.io | Helps wrangling your kubernetes YAML manifests into the different shapes you need. Without templates! |
+| k9s       | https://k9scli.io/ | A fast, reliable and interactive CLI tool for kubernetes. You'll wonder how you've ever managed without. |
 | k3d       | https://k3d.io | Gets your local kubernetes cluster up and running fast! Includes some quality of life features such as a container registry, local path provisioner, load balancer and ingress controller. |

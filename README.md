@@ -16,3 +16,9 @@ and will always have both an arm64 and amd64 variant.
 | kustomize | https://kustomize.io | Helps wrangling your kubernetes YAML manifests into the different shapes you need. Without templates! |
 | k9s       | https://k9scli.io/ | A fast, reliable and interactive CLI tool for kubernetes. You'll wonder how you've ever managed without. |
 | k3d       | https://k3d.io | Gets your local kubernetes cluster up and running fast! Includes some quality of life features such as a container registry, local path provisioner, load balancer and ingress controller. |
+
+## TODO
+
+- [ ] add shellcheck ci job
+- [ ] add full integration test between as much features as possible
+- [ ] figure out arm64 github actions ci

@@ -11,7 +11,11 @@ Skaffold handles the workflow for building, pushing and deploying your applicati
 }
 ```
 
+## Options
 
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Version of skaffold to install. | string | 1.39.4 |
 
 
 

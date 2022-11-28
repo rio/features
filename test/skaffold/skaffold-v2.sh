@@ -7,10 +7,10 @@ source dev-container-features-test-lib
 
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib.
-check "skaffold is installed" skaffold version --output='skaffold version {{.Version}}, config version {{.ConfigVersion}}, commit {{.GitCommit}}, built at {{.BuildDate}} using {{.GoVersion}}'
+check "skaffold is installed" skaffold version --output="skaffold version {{.Version}}, config version {{.ConfigVersion}}, commit {{.GitCommit}}, built at {{.BuildDate}} using {{.GoVersion}}"
 
-# Check version output
-check "default skaffold version is installed" /bin/bash -c "skaffold version | grep 'v1.39.4'"
+# check version output
+check "skaffold version matches requested version" /bin/bash -c "skaffold version | grep 'v2.0.2'"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

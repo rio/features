@@ -1,10 +1,9 @@
 #!/bin/sh
 set -e
 
-# urls and checksums
-readonly SKAFFOLD_VERSION='1.39.4'
-readonly SKAFFOLD_SHA_ARM64='605daba875ca856c5d325c49902ea1912165ff641aff1975baecbf93a2e48f1e'
-readonly SKAFFOLD_SHA_AMD64='8e1eacf53600b26e50debeaa86b526e2afd2c87f46a38b3ed64c4bef373d8b1f'
+readonly DEFAULT_SKAFFOLD_VERSION='1.39.4'
+readonly SKAFFOLD_VERSION=${VERSION:-${DEFAULT_SKAFFOLD_VERSION}}
+readonly ARCH="$(uname -m)"
 
 # apt-get configuration
 export DEBIAN_FRONTEND=noninteractive
@@ -32,19 +31,33 @@ preflight () {
 main () {
     preflight
 
-    local ARCH="$(uname -m)"
-
     echo "Installing skaffold ${SKAFFOLD_VERSION} for ${ARCH} ..."
 
     case "${ARCH}" in
-        "aarch64")
+        'aarch64')
             SKAFFOLD_URL="https://storage.googleapis.com/skaffold/releases/v${SKAFFOLD_VERSION}/skaffold-linux-arm64"
-            SKAFFOLD_SHA="${SKAFFOLD_SHA_ARM64}"
+
+            case "${SKAFFOLD_VERSION}" in
+                "2.0.2")
+                    SKAFFOLD_SHA='92f4d22d2f57eaf328dd7a164969b45d774bfd3ba94f8d9ce0e4a79456a02c1c' ;;
+                "1.39.4")
+                    SKAFFOLD_SHA='605daba875ca856c5d325c49902ea1912165ff641aff1975baecbf93a2e48f1e' ;;
+                *) echo "Insupported skaffold version ${SKAFFOLD_VERSION}"; exit 1 ;;
+            esac
         ;;
-        "x86_64")
+
+        'x86_64')
             SKAFFOLD_URL="https://storage.googleapis.com/skaffold/releases/v${SKAFFOLD_VERSION}/skaffold-linux-amd64"
-            SKAFFOLD_SHA="${SKAFFOLD_SHA_AMD64}"
+
+            case "${SKAFFOLD_VERSION}" in
+                "2.0.2")
+                    SKAFFOLD_SHA='32e73cf27d6ba880e8b1dcaff322abcf3f4ed176705ebd6a3562079f0128fc2e' ;;
+                "1.39.4")
+                    SKAFFOLD_SHA='8e1eacf53600b26e50debeaa86b526e2afd2c87f46a38b3ed64c4bef373d8b1f' ;;
+                *) echo "Insupported skaffold version ${SKAFFOLD_VERSION}"; exit 1 ;;
+            esac
         ;;
+
         *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
     esac
 

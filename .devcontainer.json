@@ -9,6 +9,7 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:1": {},
+        "ghcr.io/rio/features/chezmoi:1": {},
     },
     "remoteUser": "node",
     "postCreateCommand": "npm install -g @devcontainers/cli"

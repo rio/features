@@ -1,0 +1,10 @@
+{
+    "skaffold-v2": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "skaffold": {
+                "version": "2.0.2"
+            }
+        }
+    }
+}

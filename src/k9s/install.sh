@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-# version
-readonly K9S_VERSION='0.26.7'
+# grab the version
+readonly K9S_VERSION="${VERSION:-latest}"
 
 # apt-get configuration
 export DEBIAN_FRONTEND=noninteractive
@@ -41,10 +41,15 @@ main () {
         *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
     esac
 
-    echo "Installing k9s ${K9S_VERSION} for ${ARCH} ..."
+    local K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/latest/download/checksums.txt"
+    local K9S_URL="https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_${ARCH}.tar.gz"
 
-    local K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/checksums.txt"
-    local K9S_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_Linux_${ARCH}.tar.gz"
+    if [ "${K9S_VERSION}" != "latest" ] ; then
+        K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION#[vV]}/checksums.txt"
+        K9S_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION#[vV]}/k9s_Linux_${ARCH}.tar.gz"
+    fi
+
+    echo "Installing k9s ${K9S_VERSION} for ${ARCH} ..."
 
     echo "Downloading checksums ${K9S_CHECKSUMS_URL} ..."
     wget --no-verbose -O /tmp/checksums.txt "${K9S_CHECKSUMS_URL}"

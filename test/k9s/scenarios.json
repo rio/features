@@ -1,0 +1,18 @@
+{
+    "k9s-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k9s": {
+                "version": "0.26.5"
+            }
+        }
+    },
+    "k9s-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k9s": {
+                "version": "v0.26.4"
+            }
+        }
+    }
+}

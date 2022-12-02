@@ -1,6 +1,6 @@
 {
     "name": "Chezmoi Dotfile Manager",
     "id": "chezmoi",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Manage your dotfiles across multiple diverse machines, securely."
 }

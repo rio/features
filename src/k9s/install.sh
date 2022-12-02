@@ -1,10 +1,8 @@
 #!/bin/sh
 set -e
 
-# urls and checksums
+# version
 readonly K9S_VERSION='0.26.7'
-readonly K9S_SHA_ARM64='2888feae5298517cf4862251a8877ff978b3eb234cbc3ebc0d9eb07fc671673d'
-readonly K9S_SHA_AMD64='f774bb75045e361e17a4f267491c5ec66f41db7bffd996859ffb1465420af249'
 
 # apt-get configuration
 export DEBIAN_FRONTEND=noninteractive
@@ -37,22 +35,22 @@ main () {
     preflight
 
     local ARCH="$(uname -m)"
-
-    echo "Installing k9s ${K9S_VERSION} for ${ARCH} ..."
-
     case "${ARCH}" in
-        "aarch64")
-            K9S_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_Linux_arm64.tar.gz"
-            K9S_SHA="${K9S_SHA_ARM64}"
-        ;;
-        "x86_64")
-            K9S_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_Linux_x86_64.tar.gz"
-            K9S_SHA="${K9S_SHA_AMD64}"
-        ;;
+        "aarch64") ARCH="arm64" ;;
+        "x86_64") ARCH="x86_64" ;;
         *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
     esac
 
-    echo "Downloading ${K9S_URL} ..."
+    echo "Installing k9s ${K9S_VERSION} for ${ARCH} ..."
+
+    local K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/checksums.txt"
+    local K9S_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_Linux_${ARCH}.tar.gz"
+
+    echo "Downloading checksums ${K9S_CHECKSUMS_URL} ..."
+    wget --no-verbose -O /tmp/checksums.txt "${K9S_CHECKSUMS_URL}"
+    local K9S_SHA="$(grep Linux_${ARCH} /tmp/checksums.txt | cut -d ' ' -f 1)"
+
+    echo "Downloading tarball ${K9S_URL} ..."
     wget --no-verbose -O /tmp/k9s.tar.gz "${K9S_URL}"
 
     echo "Verifying checksum ${K9S_SHA} ..."

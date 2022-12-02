@@ -10,6 +10,10 @@ readonly CHEZMOI_SHA_ARM64='71b4c7b1966f7d4fb51d182fdd769cf5ddcbde4998b0995b504b
 export DEBIAN_FRONTEND=noninteractive
 
 preflight () {
+    if command -v wget > /dev/null; then
+        return
+    fi
+
     if [ -e /etc/os-release ]; then
         . /etc/os-release
     fi

@@ -11,6 +11,10 @@ export DEBIAN_FRONTEND=noninteractive
 
 
 preflight () {
+    if command -v wget > /dev/null; then
+        return
+    fi
+
     if [ -e /etc/os-release ]; then
         . /etc/os-release
     fi

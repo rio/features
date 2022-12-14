@@ -42,6 +42,8 @@ main () {
             SKAFFOLD_URL="https://storage.googleapis.com/skaffold/releases/v${SKAFFOLD_VERSION}/skaffold-linux-arm64"
 
             case "${SKAFFOLD_VERSION}" in
+                "2.0.3")
+                    SKAFFOLD_SHA='cbf59fc9150db7888797f140838e17396e680bdddc2b5fe57e5297ceab1a053c' ;;
                 "2.0.2")
                     SKAFFOLD_SHA='92f4d22d2f57eaf328dd7a164969b45d774bfd3ba94f8d9ce0e4a79456a02c1c' ;;
                 "1.39.4")
@@ -54,6 +56,8 @@ main () {
             SKAFFOLD_URL="https://storage.googleapis.com/skaffold/releases/v${SKAFFOLD_VERSION}/skaffold-linux-amd64"
 
             case "${SKAFFOLD_VERSION}" in
+                "2.0.3")
+                    SKAFFOLD_SHA='7d544461d53d541a6c1e6ba721a8e9f502d6cb240453faf31513f9e4d9b157c1' ;;
                 "2.0.2")
                     SKAFFOLD_SHA='32e73cf27d6ba880e8b1dcaff322abcf3f4ed176705ebd6a3562079f0128fc2e' ;;
                 "1.39.4")

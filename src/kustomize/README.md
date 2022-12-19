@@ -11,7 +11,11 @@ Kustomize introduces a template-free way to customize application configuration 
 }
 ```
 
+## Options
 
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Version of kustomize to install. Accepts versions with or without the 'v' prefix. | string | latest |
 
 
 

@@ -1,6 +1,13 @@
 {
     "name": "k3d",
     "id": "k3d",
-    "version": "1.0.1",
-    "description": "k3d makes it very easy to create single- and multi-node k3s clusters in docker, e.g. for local development on Kubernetes."
+    "version": "1.1.0",
+    "description": "k3d makes it very easy to create single- and multi-node k3s clusters in docker, e.g. for local development on Kubernetes.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of k3d to install. Accepts versions with or without the 'v' prefix."
+        }
+    }
 }

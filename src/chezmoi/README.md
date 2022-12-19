@@ -11,7 +11,11 @@ Manage your dotfiles across multiple diverse machines, securely.
 }
 ```
 
+## Options
 
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Version of chezmoi to install. Accepts versions with or without the 'v' prefix. | string | latest |
 
 
 

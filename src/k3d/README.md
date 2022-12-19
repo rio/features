@@ -11,7 +11,11 @@ k3d makes it very easy to create single- and multi-node k3s clusters in docker, 
 }
 ```
 
+## Options
 
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Version of k3d to install. Accepts versions with or without the 'v' prefix. | string | latest |
 
 
 

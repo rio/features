@@ -1,0 +1,18 @@
+{
+    "kustomize-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "kustomize": {
+                "version": "4.5.5"
+            }
+        }
+    },
+    "kustomize-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "kustomize": {
+                "version": "v4.5.5"
+            }
+        }
+    }
+}

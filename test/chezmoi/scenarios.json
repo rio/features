@@ -1,0 +1,18 @@
+{
+    "chezmoi-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "chezmoi": {
+                "version": "2.27.3"
+            }
+        }
+    },
+    "chezmoi-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "chezmoi": {
+                "version": "v2.27.3"
+            }
+        }
+    }
+}

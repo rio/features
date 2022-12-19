@@ -1,10 +1,8 @@
 #!/bin/sh
 set -e
 
-# chezmoi urls and checksums
-readonly CHEZMOI_VERSION='2.27.2'
-readonly CHEZMOI_SHA_AMD64='4b1e63c073e4b31fd491ae0ddde153a793b67fb99cb1f0cd85d0f43777f6a274'
-readonly CHEZMOI_SHA_ARM64='71b4c7b1966f7d4fb51d182fdd769cf5ddcbde4998b0995b504b75cb8bb02537'
+# grab the version
+readonly CHEZMOI_VERSION="${VERSION:-latest}"
 
 # apt-get configuration
 export DEBIAN_FRONTEND=noninteractive
@@ -36,20 +34,29 @@ main () {
     preflight
 
     local ARCH="$(uname -m)"
+    case "${ARCH}" in
+        "aarch64") ARCH="arm64" ;;
+        "x86_64") ARCH="amd64" ;;
+        *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
+    esac
 
     echo "Installing chezmoi ${CHEZMOI_VERSION} for ${ARCH} ..."
 
-    case "${ARCH}" in
-        "aarch64")
-            CHEZMOI_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION}_linux_arm64.tar.gz"
-            CHEZMOI_SHA="${CHEZMOI_SHA_ARM64}"
-        ;;
-        "x86_64")
-            CHEZMOI_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION}_linux_amd64.tar.gz"
-            CHEZMOI_SHA="${CHEZMOI_SHA_AMD64}"
-        ;;
-        *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
-    esac
+    local CHEZMOI_CHECKSUMS_URL="https://github.com/twpayne/chezmoi/releases/latest/download/"
+    local CHEZMOI_URL="https://github.com/twpayne/chezmoi/releases/latest/download/checksums.txt"
+
+    if [ "${CHEZMOI_VERSION}" != "latest" ] ; then
+        CHEZMOI_CHECKSUMS_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION#[vV]}/checksums.txt"
+        CHEZMOI_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION#[vV]}/chezmoi_${CHEZMOI_VERSION#[vV]}_linux_${ARCH}.tar.gz"
+    else
+        local RELEASES_RESPONSE="$(wget -qO- https://api.github.com/repos/twpayne/chezmoi/releases)"
+        CHEZMOI_CHECKSUMS_URL="$(echo "${RELEASES_RESPONSE}" | grep "browser_download_url.*checksums.txt" | head -n 1 | cut -d '"' -f 4)"
+        CHEZMOI_URL="$(echo "${RELEASES_RESPONSE}" | grep "browser_download_url.*linux_${ARCH}.tar.gz" | head -n 1 | cut -d '"' -f 4)"
+    fi
+
+    echo "Downloading checksums ${CHEZMOI_CHECKSUMS_URL} ..."
+    wget --no-verbose -O /tmp/checksums.txt "${CHEZMOI_CHECKSUMS_URL}"
+    local CHEZMOI_SHA="$(grep linux_${ARCH}.tar.gz /tmp/checksums.txt | cut -d ' ' -f 1)"
 
     echo "Downloading ${CHEZMOI_URL} ..."
     wget -qO /tmp/chezmoi.tar.gz "${CHEZMOI_URL}"

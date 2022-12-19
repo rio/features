@@ -1,10 +1,8 @@
 #!/bin/sh
 set -e
 
-# urls and checksums
-readonly K3D_VERSION='5.4.6'
-readonly K3D_SHA_ARM64='36db97dfb3f5b56c7cd048924d87abfa5f499c62f524e00e2500fe75f88056ae'
-readonly K3D_SHA_AMD64='8075d40c74c97d2642f15f535cb48d6d6e82df143f528833a193d87caac6a176'
+# grab the version
+readonly K3D_VERSION="${VERSION:-latest}"
 
 # apt-get configuration
 export DEBIAN_FRONTEND=noninteractive
@@ -37,29 +35,24 @@ main () {
     preflight
 
     local ARCH="$(uname -m)"
-
-    echo "Installing k3d ${K3D_VERSION} for ${ARCH} ..."
-
     case "${ARCH}" in
-        "aarch64")
-            K3D_URL="https://github.com/k3d-io/k3d/releases/download/v${K3D_VERSION}/k3d-linux-arm64"
-            K3D_SHA="${K3D_SHA_ARM64}"
-        ;;
-        "x86_64")
-            K3D_URL="https://github.com/k3d-io/k3d/releases/download/v${K3D_VERSION}/k3d-linux-amd64"
-            K3D_SHA="${K3D_SHA_AMD64}"
-        ;;
+        "aarch64") ARCH="arm64" ;;
+        "x86_64") ARCH="amd64" ;;
         *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
     esac
 
+    local K3D_URL="https://github.com/k3d-io/k3d/releases/latest/download/k3d-linux-${ARCH}"
+    if [ "${K3D_VERSION}" != "latest" ] ; then
+        K3D_URL="https://github.com/k3d-io/k3d/releases/download/v${K3D_VERSION#[vV]}/k3d-linux-${ARCH}"
+    fi
+
+    echo "Installing k3d ${K3D_VERSION} for ${ARCH} ..."
+
     echo "Downloading ${K3D_URL} ..."
     wget --no-verbose -O /usr/local/bin/k3d "${K3D_URL}"
-
-    echo "Verifying checksum ${K3D_SHA} ..."
-    echo "${K3D_SHA}  /usr/local/bin/k3d" | sha256sum -c -
     chmod +x /usr/local/bin/k3d
 
-    echo "k3d ${K3D_VERSION} for ${ARCH} installed at $(command -v k3d)."
+    echo "k3d ${K3D_VERSION} for ${ARCH} installed at $(command -v k3d) with checksum $(sha256sum $(command -v k3d))."
 }
 
 main "$@"

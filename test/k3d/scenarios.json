@@ -1,0 +1,18 @@
+{
+    "k3d-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k3d": {
+                "version": "5.4.4"
+            }
+        }
+    },
+    "k3d-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k3d": {
+                "version": "v5.4.4"
+            }
+        }
+    }
+}

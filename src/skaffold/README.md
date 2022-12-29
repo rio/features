@@ -7,7 +7,7 @@ Skaffold handles the workflow for building, pushing and deploying your applicati
 
 ```json
 "features": {
-    "ghcr.io/rio/features/skaffold:1": {}
+    "ghcr.io/rio/features/skaffold:2": {}
 }
 ```
 
@@ -15,7 +15,7 @@ Skaffold handles the workflow for building, pushing and deploying your applicati
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of skaffold to install. | string | 1.39.4 |
+| version | Version of skaffold to install. Accepts versions with or without the 'v' prefix. | string | latest |
 
 
 

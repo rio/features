@@ -1,9 +1,17 @@
 {
-    "skaffold-v2": {
+    "skaffold-specific-version-without-prefix": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "skaffold": {
-                "version": "2.0.2"
+                "version": "2.0.3"
+            }
+        }
+    },
+    "skaffold-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "skaffold": {
+                "version": "2.0.3"
             }
         }
     }

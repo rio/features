@@ -49,7 +49,7 @@ main () {
         CHEZMOI_CHECKSUMS_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION#[vV]}/checksums.txt"
         CHEZMOI_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION#[vV]}/chezmoi_${CHEZMOI_VERSION#[vV]}_linux_${ARCH}.tar.gz"
     else
-        local RELEASES_RESPONSE="$(wget -qO- https://api.github.com/repos/twpayne/chezmoi/releases)"
+        local RELEASES_RESPONSE="$(wget -qO- --tries=3 https://api.github.com/repos/twpayne/chezmoi/releases)"
         CHEZMOI_CHECKSUMS_URL="$(echo "${RELEASES_RESPONSE}" | grep "browser_download_url.*checksums.txt" | head -n 1 | cut -d '"' -f 4)"
         CHEZMOI_URL="$(echo "${RELEASES_RESPONSE}" | grep "browser_download_url.*linux_${ARCH}.tar.gz" | head -n 1 | cut -d '"' -f 4)"
     fi

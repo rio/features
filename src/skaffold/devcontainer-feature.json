@@ -1,18 +1,13 @@
 {
     "name": "Skaffold Container & Kubernetes Development",
     "id": "skaffold",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "description": "Skaffold handles the workflow for building, pushing and deploying your application, allowing you to focus on what matters most: writing code.",
     "options": {
         "version": {
             "type": "string",
-            "enum": [
-                "2.0.3",
-                "2.0.2",
-                "1.39.4"
-            ],
-            "default": "1.39.4",
-            "description": "Version of skaffold to install."
+            "default": "latest",
+            "description": "Version of skaffold to install. Accepts versions with or without the 'v' prefix."
         }
     }
 }

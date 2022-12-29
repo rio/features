@@ -45,7 +45,7 @@ main () {
         KUSTOMIZE_CHECKSUMS_URL="https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION#[vV]}/checksums.txt"
         KUSTOMIZE_URL="https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION#[vV]}/kustomize_v${KUSTOMIZE_VERSION#[vV]}_linux_${ARCH}.tar.gz"
     else
-        local RELEASES_RESPONSE="$(wget -qO- https://api.github.com/repos/kubernetes-sigs/kustomize/releases)"
+        local RELEASES_RESPONSE="$(wget -qO- --tries=3 https://api.github.com/repos/kubernetes-sigs/kustomize/releases)"
         KUSTOMIZE_CHECKSUMS_URL="$(echo "${RELEASES_RESPONSE}" | grep "browser_download_url.*checksums.txt" | head -n 1 | cut -d '"' -f 4)"
         KUSTOMIZE_URL="$(echo "${RELEASES_RESPONSE}" | grep "browser_download_url.*linux_${ARCH}" | head -n 1 | cut -d '"' -f 4)"
     fi

@@ -14,5 +14,21 @@
                 "version": "v0.26.4"
             }
         }
+    },
+    "k9s-amd64-arch-after-v0.27.0": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k9s": {
+                "version": "v0.27.0"
+            }
+        }
+    },
+    "k9s-x86_64-arch-before-v0.27.0": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k9s": {
+                "version": "v0.26.0"
+            }
+        }
     }
 }

@@ -37,7 +37,20 @@ main () {
     local ARCH="$(uname -m)"
     case "${ARCH}" in
         "aarch64") ARCH="arm64" ;;
-        "x86_64") ARCH="x86_64" ;;
+        "x86_64")
+            # parse the semantic version to determine what arch to use
+            # the file naming changed from 0.27.0 onward: https://github.com/derailed/k9s/pull/1910
+            local SEMVER="${K9S_VERSION#[vV]}"      # strip the v
+            local SEMVER_MAJOR="${SEMVER%%\.*}"     # split until the first .
+            local SEMVER_MINOR="${SEMVER#*.}"       # split starting after the first .
+            local SEMVER_MINOR="${SEMVER_MINOR%.*}" # use previous result to grab the first element again
+
+            ARCH="amd64"
+
+            if [ "${SEMVER_MAJOR}" -eq "0" ] && [ "${SEMVER_MINOR}" -lt "27" ]; then
+                ARCH="x86_64"
+            fi
+        ;;
         *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
     esac
 

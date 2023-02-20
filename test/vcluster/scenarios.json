@@ -1,0 +1,18 @@
+{
+    "vcluster-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "vcluster": {
+                "version": "0.12.3"
+            }
+        }
+    },
+    "vcluster-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "vcluster": {
+                "version": "v0.12.3"
+            }
+        }
+    }
+}

@@ -7,12 +7,7 @@ source dev-container-features-test-lib
 
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib.
-check "skaffold" skaffold version
-check "chezmoi" chezmoi --version
-check "kustomize" kustomize version
-check "k9s" k9s version
-check "k3d" k3d version
-check "vcluster" vcluster version
+check "vcluster specific version v0.12.3" /bin/bash -c "vcluster version | grep '0.12.3'"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

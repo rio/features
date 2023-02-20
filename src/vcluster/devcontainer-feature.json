@@ -1,0 +1,13 @@
+{
+    "name": "vcluster",
+    "id": "vcluster",
+    "version": "0.1.0",
+    "description": "Virtual Kubernetes Clusters that run inside regular namespaces.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of vcluster to install. Accepts versions with or without the 'v' prefix."
+        }
+    }
+}

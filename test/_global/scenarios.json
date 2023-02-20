@@ -6,7 +6,8 @@
             "skaffold": {},
             "k9s": {},
             "k3d": {},
-            "kustomize": {}
+            "kustomize": {},
+            "vcluster": {}
         }
     }
 }

@@ -1,7 +1,7 @@
 {
     "name": "k9s",
     "id": "k9s",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your applications in the wild. K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.",
     "options": {
         "version": {

@@ -13,11 +13,12 @@ jobs:
     strategy:
       matrix:
         features:
-          - skaffold
           - chezmoi
-          - kustomize
-          - k9s
           - k3d
+          - k9s
+          - kustomize
+          - skaffold
+          - vcluster
         baseImage:
           - debian:latest
           - ubuntu:latest

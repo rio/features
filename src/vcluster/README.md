@@ -1,13 +1,13 @@
 
 # vcluster (vcluster)
 
-Virtual Kubernetes Clusters that run inside regular namespaces.
+Virtual Kubernetes Clusters that run inside regular namespaces. Currently only supports versions from 0.15.4 and above.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/rio/features/vcluster:0": {}
+    "ghcr.io/rio/features/vcluster:1": {}
 }
 ```
 

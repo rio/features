@@ -1,7 +1,7 @@
 {
     "name": "Kustomize",
     "id": "kustomize",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Kustomize introduces a template-free way to customize application configuration that simplifies the use of off-the-shelf applications. Now, built into kubectl as apply -k.",
     "options": {
         "version": {

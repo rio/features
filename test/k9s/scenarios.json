@@ -30,5 +30,21 @@
                 "version": "v0.26.0"
             }
         }
+    },
+    "k9s-checksum-before-v0.28.0": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k9s": {
+                "version": "v0.27.4"
+            }
+        }
+    },
+    "k9s-checksum-after-v0.28.0": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k9s": {
+                "version": "v0.28.0"
+            }
+        }
     }
 }

@@ -41,6 +41,11 @@ main () {
         *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
     esac
 
+    if [ "${KUSTOMIZE_VERSION#[vV]}" = "5.2.0" ] ; then
+        echo "ERROR: This version is unsupported because of an unintended directory structure change"
+        exit 1
+    fi
+
     if [ "${KUSTOMIZE_VERSION}" != "latest" ] ; then
         KUSTOMIZE_CHECKSUMS_URL="https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION#[vV]}/checksums.txt"
         KUSTOMIZE_URL="https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION#[vV]}/kustomize_v${KUSTOMIZE_VERSION#[vV]}_linux_${ARCH}.tar.gz"

@@ -34,6 +34,14 @@ preflight () {
 main () {
     preflight
 
+    if [ "${K9S_VERSION}" != "latest" ]; then
+        # parse the semantic version for later
+        local SEMVER="${K9S_VERSION#[vV]}"      # strip the v
+        local SEMVER_MAJOR="${SEMVER%%\.*}"     # split until the first .
+        local SEMVER_MINOR="${SEMVER#*.}"       # split starting after the first .
+        local SEMVER_MINOR="${SEMVER_MINOR%.*}" # use previous result to grab the first element again
+    fi
+
     local ARCH="$(uname -m)"
     case "${ARCH}" in
         "aarch64") ARCH="arm64" ;;
@@ -41,13 +49,7 @@ main () {
             ARCH="amd64"
 
             if [ "${K9S_VERSION}" != "latest" ]; then    
-                # parse the semantic version to determine what arch to use
-                # the file naming changed from 0.27.0 onward: https://github.com/derailed/k9s/pull/1910
-                local SEMVER="${K9S_VERSION#[vV]}"      # strip the v
-                local SEMVER_MAJOR="${SEMVER%%\.*}"     # split until the first .
-                local SEMVER_MINOR="${SEMVER#*.}"       # split starting after the first .
-                local SEMVER_MINOR="${SEMVER_MINOR%.*}" # use previous result to grab the first element again
-
+                # the file naming for the achitectures changed from 0.27.0 onward: https://github.com/derailed/k9s/pull/1910
                 if [ "${SEMVER_MAJOR}" -eq "0" ] && [ "${SEMVER_MINOR}" -lt "27" ]; then
                     ARCH="x86_64"    
                 fi
@@ -56,11 +58,16 @@ main () {
         *) echo "The current architecture (${ARCH}) is not supported."; exit 1 ;;
     esac
 
-    local K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/latest/download/checksums.txt"
+    local K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/latest/download/checksums.sha256"
     local K9S_URL="https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_${ARCH}.tar.gz"
 
     if [ "${K9S_VERSION}" != "latest" ] ; then
-        K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION#[vV]}/checksums.txt"
+        if [ "${SEMVER_MAJOR}" -eq "0" ] && [ "${SEMVER_MINOR}" -lt "28" ]; then
+            K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION#[vV]}/checksums.txt"
+        else
+            K9S_CHECKSUMS_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION#[vV]}/checksums.sha256"
+        fi
+
         K9S_URL="https://github.com/derailed/k9s/releases/download/v${K9S_VERSION#[vV]}/k9s_Linux_${ARCH}.tar.gz"
     fi
 

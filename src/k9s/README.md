@@ -15,7 +15,7 @@ K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of k9s to install. Accepts versions with or without the 'v' prefix. | string | latest |
+| version | Version of k9s to install. Accepts versions with or without the 'v' prefix. | string | 0.27.4 |
 
 
 

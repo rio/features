@@ -57,7 +57,7 @@ main () {
 
     echo "Downloading ${VCLUSTER_URL} ..."
     wget --no-verbose -O /tmp/vcluster "${VCLUSTER_URL}"
-    local VCLUSTER_SHA="$(grep vcluster-linux-${ARCH} /tmp/checksums.txt | cut -d ' ' -f 1)"
+    local VCLUSTER_SHA="$(grep -e vcluster-linux-${ARCH}$ /tmp/checksums.txt | cut -d ' ' -f 1)"
 
     echo "Verifying checksum ${VCLUSTER_SHA} ..."
     echo "${VCLUSTER_SHA}  /tmp/vcluster" | sha256sum -c -

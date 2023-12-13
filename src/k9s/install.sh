@@ -75,7 +75,7 @@ main () {
 
     echo "Downloading checksums ${K9S_CHECKSUMS_URL} ..."
     wget --no-verbose -O /tmp/checksums.txt "${K9S_CHECKSUMS_URL}"
-    local K9S_SHA="$(grep Linux_${ARCH} /tmp/checksums.txt | cut -d ' ' -f 1)"
+    local K9S_SHA="$(grep -e k9s_Linux_${ARCH}.tar.gz$ /tmp/checksums.txt | cut -d ' ' -f 1)"
 
     echo "Downloading tarball ${K9S_URL} ..."
     wget --no-verbose -O /tmp/k9s.tar.gz "${K9S_URL}"

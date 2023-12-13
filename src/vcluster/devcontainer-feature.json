@@ -1,7 +1,7 @@
 {
     "name": "vcluster",
     "id": "vcluster",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Virtual Kubernetes Clusters that run inside regular namespaces. Currently only supports versions from 0.15.4 and above.",
     "options": {
         "version": {

@@ -72,6 +72,7 @@ main () {
     chmod +x /usr/local/bin/kustomize
     rm /tmp/kustomize.tar.gz
 
+    mkdir -p /etc/bash_completion.d/
     kustomize completion bash > /etc/bash_completion.d/kustomize
 
     echo "Kustomize ${KUSTOMIZE_VERSION} for ${ARCH} installed at $(command -v kustomize)."

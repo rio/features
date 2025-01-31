@@ -1,4 +1,4 @@
-# Rio's Devcontainer Features
+# Kevin's Devcontainer Features
 
 These features are my daily drivers when developing systems that are mostly
 involving containers and kubernetes. Generally they are tool installers that I

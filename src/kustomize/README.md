@@ -7,7 +7,7 @@ Kustomize introduces a template-free way to customize application configuration 
 
 ```json
 "features": {
-    "ghcr.io/rio/features/kustomize:1": {}
+    "ghcr.io/ktijssen/features/kustomize:1": {}
 }
 ```
 
@@ -21,4 +21,4 @@ Kustomize introduces a template-free way to customize application configuration 
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/rio/features/blob/main/src/kustomize/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ktijssen/features/blob/main/src/kustomize/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

@@ -7,7 +7,7 @@ K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of
 
 ```json
 "features": {
-    "ghcr.io/rio/features/k9s:1": {}
+    "ghcr.io/ktijssen/features/k9s:1": {}
 }
 ```
 
@@ -21,4 +21,4 @@ K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/rio/features/blob/main/src/k9s/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ktijssen/features/blob/main/src/k9s/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

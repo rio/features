@@ -7,7 +7,7 @@ Manage your dotfiles across multiple diverse machines, securely.
 
 ```json
 "features": {
-    "ghcr.io/rio/features/chezmoi:1": {}
+    "ghcr.io/ktijssen/features/chezmoi:1": {}
 }
 ```
 
@@ -21,4 +21,4 @@ Manage your dotfiles across multiple diverse machines, securely.
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/rio/features/blob/main/src/chezmoi/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ktijssen/features/blob/main/src/chezmoi/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

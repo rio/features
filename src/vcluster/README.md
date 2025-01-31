@@ -7,7 +7,7 @@ Virtual Kubernetes Clusters that run inside regular namespaces. Currently only s
 
 ```json
 "features": {
-    "ghcr.io/rio/features/vcluster:1": {}
+    "ghcr.io/ktijssen/features/vcluster:1": {}
 }
 ```
 
@@ -21,4 +21,4 @@ Virtual Kubernetes Clusters that run inside regular namespaces. Currently only s
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/rio/features/blob/main/src/vcluster/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ktijssen/features/blob/main/src/vcluster/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

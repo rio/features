@@ -7,7 +7,7 @@ k3d makes it very easy to create single- and multi-node k3s clusters in docker, 
 
 ```json
 "features": {
-    "ghcr.io/rio/features/k3d:1": {}
+    "ghcr.io/ktijssen/features/k3d:1": {}
 }
 ```
 
@@ -21,4 +21,4 @@ k3d makes it very easy to create single- and multi-node k3s clusters in docker, 
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/rio/features/blob/main/src/k3d/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/ktijssen/features/blob/main/src/k3d/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

@@ -56,6 +56,7 @@ main () {
         local RELEASES_RESPONSE="$(wget -qO- --tries=3 https://api.github.com/repos/charmbracelet/gum/releases)"
         GUM_CHECKSUMS_URL="$(echo "${RELEASES_RESPONSE}" | grep "browser_download_url.*checksums.txt" | head -n 1 | cut -d '"' -f 4)"
         GUM_URL="$(echo "${RELEASES_RESPONSE}" | grep "browser_download_url.*Linux_${ARCH}" | head -n 1 | cut -d '"' -f 4)"
+        GUM_VERSION="$(echo "${RELEASES_RESPONSE}" | grep "tag_name" | head -n 1 | cut -d '"' -f 4)"
     fi
 
     echo "Installing gum ${GUM_VERSION} for ${ARCH} ..."

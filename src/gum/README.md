@@ -1,13 +1,13 @@
 
-# k9s (k9s)
+# gum (gum)
 
-K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your applications in the wild. K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources.
+A tool for glamorous shell scripts. Leverage the power of Bubbles and Lip Gloss in your scripts and aliases without writing any Go code!
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/ktijssen/features/k9s:1": {}
+    "ghcr.io/ktijssen/features/gum:1": {}
 }
 ```
 
@@ -15,7 +15,7 @@ K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of k9s to install. Accepts versions with or without the 'v' prefix. | string | latest |
+| version | Version of gum to install. Accepts versions with or without the 'v' prefix. | string | latest |
 
 
 

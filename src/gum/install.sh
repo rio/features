@@ -2,7 +2,7 @@
 set -e
 
 # grab the version
-readonly GUM_VERSION="${VERSION:-latest}"
+GUM_VERSION="${VERSION:-latest}"
 
 # apt-get configuration
 export DEBIAN_FRONTEND=noninteractive

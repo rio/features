@@ -62,16 +62,16 @@ main () {
 
     echo "Downloading checksums ${GUM_CHECKSUMS_URL} ..."
     wget --no-verbose -O /tmp/checksums.txt "${GUM_CHECKSUMS_URL}"
-    local GUM_SHA="$(grep -e linux_${ARCH}.tar.gz$ /tmp/checksums.txt | cut -d ' ' -f 1)"
+    local GUM_SHA="$(grep -e Linux_${ARCH}.tar.gz$ /tmp/checksums.txt | cut -d ' ' -f 1)"
 
     echo "Downloading tarball ${GUM_URL} ..."
     wget --no-verbose -O /tmp/gum.tar.gz "${GUM_URL}"
 
     echo "Verifying checksum ${GUM_SHA} ..."
-    echo "${GUM_SHA}  /tmp/gum.tar.gz" | sha256sum -c -
+    echo "${GUM_SHA} /tmp/gum.tar.gz" | sha256sum -c -
 
     echo "Extracting..."
-    tar xf /tmp/gum.tar.gz --directory=/usr/local/bin gum
+    tar xf /tmp/gum.tar.gz --directory=/usr/local/bin --strip-components 1 gum_${GUM_VERSION#[vV]}_Linux_${ARCH}/gum
     chmod +x /usr/local/bin/gum
     rm /tmp/gum.tar.gz
 

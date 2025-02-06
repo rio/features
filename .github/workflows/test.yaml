@@ -14,6 +14,7 @@ jobs:
       matrix:
         features:
           - chezmoi
+          - gum
           - k3d
           - k9s
           - kustomize

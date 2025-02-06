@@ -1,7 +1,7 @@
 {
     "name": "gum",
     "id": "gum",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A tool for glamorous shell scripts. Leverage the power of Bubbles and Lip Gloss in your scripts and aliases without writing any Go code!",
     "options": {
         "version": {

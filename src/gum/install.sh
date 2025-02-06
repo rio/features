@@ -76,6 +76,9 @@ main () {
     chmod +x /usr/local/bin/gum
     rm /tmp/gum.tar.gz
 
+    mkdir -p /etc/bash_completion.d/
+    gum completion bash > /etc/bash_completion.d/gum
+
     echo "gum ${GUM_VERSION} for ${ARCH} installed at $(command -v gum)."
 }
 

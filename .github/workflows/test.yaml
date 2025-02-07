@@ -19,6 +19,7 @@ jobs:
           - k9s
           - kustomize
           - skaffold
+          - talosctl
           - vcluster
         baseImage:
           - debian:latest

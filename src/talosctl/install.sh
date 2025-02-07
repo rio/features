@@ -52,6 +52,10 @@ main () {
     wget --no-verbose -O /usr/local/bin/talosctl "${TALOSCTL_URL}"
     chmod +x /usr/local/bin/talosctl
 
+    echo "Add autocompletion for bash"
+    mkdir -p /etc/bash_completion.d/
+    talosctl completion bash > /etc/bash_completion.d/talosctl
+
     echo "talosctl ${TALOSCTL_VERSION} for ${ARCH} installed at $(command -v talosctl) with checksum $(sha256sum $(command -v talosctl))."
 }
 

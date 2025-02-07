@@ -1,7 +1,7 @@
 
 # talosctl (talosctl)
 
-`talosctl` is the command-line tool used to manage and interact with Talos Linux, a secure, minimal, and immutable operating system designed for Kubernetes. It allows you to perform administrative tasks such as bootstrapping a cluster, configuring nodes, and debugging issues.
+is the command-line tool used to manage and interact with Talos Linux, a secure, minimal, and immutable operating system designed for Kubernetes. It allows you to perform administrative tasks such as bootstrapping a cluster, configuring nodes, and debugging issues.
 
 ## Example Usage
 
@@ -15,7 +15,7 @@
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of gum to install. Accepts versions with or without the 'v' prefix. | string | latest |
+| version | Version of talosctl to install. Accepts versions with or without the 'v' prefix. | string | latest |
 
 
 

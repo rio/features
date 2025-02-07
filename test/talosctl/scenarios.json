@@ -1,0 +1,18 @@
+{
+    "talosctl-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "talosctl": {
+                "version": "1.9.3"
+            }
+        }
+    },
+    "talosctl-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "talosctl": {
+                "version": "v1.9.3"
+            }
+        }
+    }
+}

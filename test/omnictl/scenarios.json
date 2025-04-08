@@ -1,0 +1,18 @@
+{
+    "omnictl-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "omnictl": {
+                "version": "0.47.1"
+            }
+        }
+    },
+    "omnictl-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "omnictl": {
+                "version": "v0.47.1"
+            }
+        }
+    }
+}

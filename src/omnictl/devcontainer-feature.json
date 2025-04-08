@@ -1,0 +1,13 @@
+{
+    "name": "omnictl",
+    "id": "omnictl",
+    "version": "1.0.0",
+    "description": "omnictl is a command-line interface (CLI) tool used to interact with Omni, a system or platform usually related to cloud services, multi-cloud orchestration, or infrastructure management",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of omnictl to install. Accepts versions with or without the 'v' prefix."
+        }
+    }
+}

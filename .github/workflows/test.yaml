@@ -18,6 +18,7 @@ jobs:
           - k3d
           - k9s
           - kustomize
+          - omnictl
           - skaffold
           - talosctl
           - vcluster

@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         features:
+          - argocd
           - chezmoi
           - gum
           - k3d

@@ -1,0 +1,18 @@
+{
+    "argocd-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "argocd": {
+                "version": "5.4.4"
+            }
+        }
+    },
+    "argocd-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "argocd": {
+                "version": "v5.4.4"
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "argocd",
+    "id": "argocd",
+    "version": "1.0.0",
+    "description": "Declarative GitOps CD for Kubernetes",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select the Argo CD CLI version you would like to install. Accepts versions with or without the 'v' prefix."
+        }
+    }
+}

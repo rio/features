@@ -1,0 +1,18 @@
+{
+    "gum-specific-version-without-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "gum": {
+                "version": "0.16.1"
+            }
+        }
+    },
+    "gum-specific-version-with-prefix": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "gum": {
+                "version": "v0.16.1"
+            }
+        }
+    }
+}

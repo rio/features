@@ -4,6 +4,7 @@
         "features": {
             "chezmoi": {},
             "skaffold": {},
+            "gum": {},
             "k9s": {},
             "k3d": {},
             "kustomize": {},

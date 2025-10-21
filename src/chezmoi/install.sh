@@ -56,7 +56,7 @@ main () {
 
     echo "Downloading checksums ${CHEZMOI_CHECKSUMS_URL} ..."
     wget --no-verbose -O /tmp/checksums.txt "${CHEZMOI_CHECKSUMS_URL}"
-    local CHEZMOI_SHA="$(grep linux_${ARCH}.tar.gz /tmp/checksums.txt | cut -d ' ' -f 1)"
+    local CHEZMOI_SHA="$(grep linux_${ARCH}.tar.gz$ /tmp/checksums.txt | cut -d ' ' -f 1)"
 
     echo "Downloading ${CHEZMOI_URL} ..."
     wget -qO /tmp/chezmoi.tar.gz "${CHEZMOI_URL}"

@@ -1,0 +1,13 @@
+{
+    "name": "gum",
+    "id": "gum",
+    "version": "1.0.0",
+    "description": "A tool for glamorous shell scripts.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of gum to install. Accepts versions with or without the 'v' prefix."
+        }
+    }
+}
